@@ -1,0 +1,7 @@
+[project]
+name = "ml-customer-conversion"
+version = "0.1.0"
+description = "ML zoomcamp 2025 - midterm project"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
