@@ -31,21 +31,21 @@ Only the training dataset is used for this project.
 
 ## 📁 Project Structure
 ```bash
-├── README.md       # Project documentation (this file)
-├── data            # Data folder
-│ ├── data.csv # Main dataset used for training
-│ └── raw # Raw datasets downloaded from Kaggle
-├── notebook.ipynb  # Main notebook for data exploration & model selection
-├── train.py        # Script to train and save the final model
-├── predict.py      # Prediction logic used by the FastAPI service
-├── model_xgb.pkl   # Trained XGBoost model + DictVectorizer
+├── README.md                # Project documentation (this file)
+├── data                     # Data folder
+│ ├── data.csv               # Main dataset used for training
+│ └── raw                    # Raw datasets downloaded from Kaggle
+├── notebook.ipynb           # Main notebook for data exploration & model selection
+├── train.py                 # Script to train and save the final model
+├── predict.py               # Prediction logic used by the FastAPI service
+├── model_xgb.pkl            # Trained XGBoost model + DictVectorizer
 ├── feature_importance.ipynb # Notebook exploring model feature importances
-├── Dockerfile      # Docker setup for deploying the FastAPI service
-├── get_demo_row.py # Script to generate a demo customer record
-├── demo_row.json   # Generated sample input record for testing
-├── predict-demo.py # Script to send a prediction request to the API
-├── pyproject.toml  # Project dependencies + build config for uv
-└── uv.lock         # uv lockfile to maintain reproducible environments
+├── Dockerfile               # Docker setup for deploying the FastAPI service
+├── get_demo_row.py          # Script to generate a demo customer record
+├── demo_row.json            # Generated sample input record for testing
+├── predict-demo.py          # Script to send a prediction request to the API
+├── pyproject.toml           # Project dependencies + build config for uv
+└── uv.lock                  # uv lockfile to maintain reproducible environments
 ```
 
 ## 🚀 How to Run the Project
