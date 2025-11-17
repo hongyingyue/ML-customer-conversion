@@ -7,7 +7,6 @@ The model identifies high-potential leads to optimize marketing strategies and i
 
 ## Data
 This project uses a synthetic dataset from Kaggle:
-
 👉 [Customer Conversion Prediction Dataset](https://www.kaggle.com/datasets/muhammadshahidazeem/customer-conversion-dataset-for-stuffmart-com?select=customer_conversion_traing_dataset+.csv)
 
 Only the training dataset is used for this project.
@@ -28,8 +27,30 @@ Only the training dataset is used for this project.
 - Behavioral Data: Click-through rates, response times, downloads, follow-up emails
 
 - Technical: Device type, payment history
-  
-### 📥 Get the data
+
+
+## 📁 Project Structure
+```bash
+├── README.md       # Project documentation (this file)
+├── data            # Data folder
+│ ├── data.csv # Main dataset used for training
+│ └── raw # Raw datasets downloaded from Kaggle
+├── notebook.ipynb  # Main notebook for data exploration & model selection
+├── train.py        # Script to train and save the final model
+├── predict.py      # Prediction logic used by the FastAPI service
+├── model_xgb.pkl   # Trained XGBoost model + DictVectorizer
+├── feature_importance.ipynb # Notebook exploring model feature importances
+├── Dockerfile      # Docker setup for deploying the FastAPI service
+├── get_demo_row.py # Script to generate a demo customer record
+├── demo_row.json   # Generated sample input record for testing
+├── predict-demo.py # Script to send a prediction request to the API
+├── pyproject.toml  # Project dependencies + build config for uv
+└── uv.lock         # uv lockfile to maintain reproducible environments
+```
+
+## 🚀 How to Run the Project
+
+### 1. Download the Dataset
 You can either download the dataset directly from its [Kaggle webpage](https://www.kaggle.com/datasets/muhammadshahidazeem/customer-conversion-dataset-for-stuffmart-com?select=customer_conversion_traing_dataset+.csv), or follow the steps below to download it using the Kaggle API (requires Kaggle API setup).
 
 ```bash
@@ -50,3 +71,59 @@ rm data/download.zip
 ```
 
 After downloading, the dataset is **renamed** to `data/data.csv` for convenience and easier reference throughout the project.
+
+### 2. Train the final Model
+
+Run the training script:
+
+```bash
+python train.py
+```
+This will:
+
+- Load the dataset
+- Train the final model
+- Save the model and DictVectorizer to the root directory
+
+### 3. Build and Run the Dockerized API Service
+
+Make sure Docker is installed and running.
+
+**Build the Docker image**:
+```
+docker build -t customer-api .
+```
+
+**Run the container**:
+```
+docker run -d -p 9696:9696 --name customer-api-container customer-api
+```
+
+The API will be available at:
+http://localhost:9696/predict
+
+### 4. Generate a Demo Customer Record
+```
+python get_demo_row.py
+```
+
+This will produce a sample customer dictionary for testing.
+
+![Get a demo record](/screenshot/demo_row.png)
+
+### 5. Test the Prediction API
+With the Docker container running, call the prediction service using:
+```
+python predict-demo.py
+```
+
+![Prediction](/screenshot/prediction.png)
+
+This script will send the demo customer record to the FastAPI backend and print the prediction result.
+
+## Acknowledgments
+
+- **ML Zoomcamp**: This project was created as part of the [ML Zoomcamp](https://github.com/DataTalksClub/machine-learning-zoomcamp/tree/master) mid-term assignment.  
+- **Dataset**: Customer Conversion Prediction dataset, sourced from [Kaggle](https://www.kaggle.com/).  
+
+Feel free to explore the code, run the demos, and suggest improvements! 😊

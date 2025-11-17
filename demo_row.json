@@ -1,0 +1,23 @@
+{
+    "data": {
+        "age": "34",
+        "gender": "male",
+        "location": "lahore",
+        "leadsource": "email",
+        "timespent_minutes": "28",
+        "pagesviewed": "14",
+        "leadstatus": "hot",
+        "emailsent": "9",
+        "devicetype": "tablet",
+        "referralsource": "referralsite",
+        "formsubmissions": "2",
+        "downloads": "0",
+        "ctr_productpage": "0.5",
+        "responsetime_hours": "9",
+        "followupemails": "9",
+        "socialmediaengagement": "62",
+        "paymenthistory": "good"
+    },
+    "leadid": "429",
+    "conversion_target": "1"
+}
